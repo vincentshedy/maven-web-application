@@ -1,0 +1,15 @@
+node{
+  def mavenHome = tool name: 'maven3.9.9'
+  stage('1cloneCode'){
+    git "https://github.com/vincentshedy/maven-web-application"
+  }
+  stage('2Test&Build'){
+    sh "${mavenHome}/bin/mvn clean package"
+    //bat "${mavenHome}/bin/mvn clean package"
+  }
+  stage('3codeQualityGate'){
+    sh "${mavenHome}/bin/mvn clean sonar:sonar"
+  }
+  stage('4uploadArtifacts'){
+    sh "${mavenHome}/bin/mvn deploy"
+  }
