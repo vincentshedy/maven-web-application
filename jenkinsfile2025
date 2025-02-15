@@ -54,7 +54,7 @@ stage('7.Deploy2Prod'){
   }
 post{
     always{
-      emailtext body: '''Hey guys
+      emailext body: '''Hey guys
 Please check the build status.
 
 Thank you
