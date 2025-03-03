@@ -1,2 +1,3 @@
-FROM tomcat:8.0.20-jre8
-COPY target/*.war /usr/local/tomcat/webapps/maven-web-app.war
+FROM tomcat:10.1-jdk17-openjdk
+### Good stuff by shedy
+COPY target/*.war /usr/local/tomcat/webapps/webapp.war
